@@ -17,28 +17,27 @@ Link: https://aws.amazon.com/
 2. Under Build a solution, select Launch a virtual machine
 ![launchavm](https://user-images.githubusercontent.com/42085040/52391550-aafbb280-2a6b-11e9-8d0d-5830a243a172.PNG)
 
-3. On the right side where all different type of OS are listed, select Ubuntu Server 16.04 LTS (HVM), SSD Volume Type
-    The reason why I choose this version is that MS Remote Desktop Connection does work on this version and I don't 
+3. On the right side where all different type of OSs are listed, select Ubuntu Server 16.04 LTS (HVM), SSD Volume Type. <br/>
+    The reason why I choose this version is that MS Remote Desktop Connection works on this version and I don't 
     want to figure out if the same method work for the other version (Ubuntu Server 18.04 LTS (HVM), SSD Volume Type).
 ![choosevm](https://user-images.githubusercontent.com/42085040/52391655-5e64a700-2a6c-11e9-8637-9d3524f2bcd1.PNG)
 
 4. Click Review and Launch if you want the free version. Nothing for you to set up.
 
-5. Again, click launch
+5. Again in the next page, click launch
 
-6. Now you are promoted with Selecting a new key pair. It is like username and password combination for your VM at AWS.
-If you never created VM at AWS before, you won't have any existing key pair. So select create a new key pair.
-Name it however you want - Mine is CallMeMaybe~~~
-Click Download Key Pair and you will get a file "whatever you named it".pem
-This is the love of your life and you should keep it save and never delete it
+6. Now you are promoted with Selecting a new key pair. It is like username and password combination for your VM at AWS.<br/>
+If you never created VM at AWS before, you won't have any existing key pair. So select create a new key pair. <br/>
+Name it however you want - Mine is CallMeMaybe~~~ <br/>
+Click Download Key Pair and you will get a file "whatever you named it".pem; <br/>
+This is the love of your life and you should keep it save and never delete it <br/>
 ![keypair](https://user-images.githubusercontent.com/42085040/52391806-36297800-2a6d-11e9-9a40-75f6ce5323f6.PNG)
 
 7. Click launch and Your Instances are now launching; scroll all the way down, you will see View Instance at the bottom right corner
  
-8. Click View Instance and you will see something like the picture below:
-    Import thing includes but not limited to the following:
-- Name of instance, you can name it however you want. Name it so you dont confused it with others. AWS free version allow 
-      up to two instance running at the same time. So you can get a Windows and a Linux running at the same time~~ way to go Amazon~
+8. Click View Instance and you will see something like the picture below: <br/>
+    Import thing includes but not limited to the following: <br/>
+- Name of instance, you can name it however you want. Name it so you dont confused it with others. AWS free version allow up to two instance running at the same time. So you can get a Windows and a Linux running at the same time~~ way to go Amazon~
 - Instance ID is important 
 - IPv4 public IP is important
 ![viewinstance](https://user-images.githubusercontent.com/42085040/52391957-e8613f80-2a6d-11e9-8114-1409b926668a.PNG)
