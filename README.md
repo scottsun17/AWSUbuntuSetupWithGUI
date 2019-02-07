@@ -33,10 +33,11 @@ Click Download Key Pair and you will get a file "whatever you named it".pem; <br
 This is the love of your life and you should keep it save and never delete it <br/>
 ![keypair](https://user-images.githubusercontent.com/42085040/52391806-36297800-2a6d-11e9-9a40-75f6ce5323f6.PNG)
 
-7. Click launch and Your Instances are now launching; scroll all the way down, you will see View Instance at the bottom right corner
+7. Click Launch Instance <br/>
+Your Instances are now launching; scroll all the way down, you will see View Instance at the bottom right corner
  
 8. Click View Instance and you will see something like the picture below: <br/>
-    Import thing includes but not limited to the following: <br/>
+    Important things includes but not limited to the following: <br/>
 - Name of instance, you can name it however you want. Name it so you dont confused it with others. AWS free version allow up to two instance running at the same time. So you can get a Windows and a Linux running at the same time~~ way to go Amazon~
 - Instance ID is important 
 - IPv4 public IP is important
