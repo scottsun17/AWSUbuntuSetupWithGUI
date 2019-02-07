@@ -169,7 +169,7 @@ sudo roboot
 
 10. We need to go back and config PuTTY again
    - at landing page (Session), select your saved session - mine is CallMeMaybe Instance
-   - click load
+   - click load <br>
 ![load](https://user-images.githubusercontent.com/42085040/52394652-f8325100-2a78-11e9-909b-9351e130cfe9.PNG)
 
 11. On the left side Menu, select Connection -> SSH ->Tunnel and we need to do the following:
@@ -202,7 +202,7 @@ netstat -antp
 
 18. Click Connect and Remote Desktop Connection will launch. Now type in username and password
 username: ubuntu
-password: Same Password you set in Step 4
+password: Same Password you set in Step 4 <br>
 ![msremote](https://user-images.githubusercontent.com/42085040/52395222-45172700-2a7b-11e9-9e84-b130e39b95e5.PNG)
 
 19. You are in the GUI!! Select Default Config
