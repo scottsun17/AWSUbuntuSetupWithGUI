@@ -1,11 +1,17 @@
 # AWSUbuntuSetupWithGUI
-Step by step setting up Ubuntu on AWS and connecting to GUI with MS Remote Desktop Connection
+Step by step setting up Ubuntu on AWS and connecting to GUI with MS Remote Desktop Connection on a windows computer
+
+## what you need to start
+   - Windows Computer (mine is windows 7)
+   - Remote Desktop Connection (come with windows)
+   - AWS account (link below to register)
+   - PuTTY (link below to download)
 
 ## Register an account with AWS 
 Link: https://aws.amazon.com/ 
 ![awsaccountsignup](https://user-images.githubusercontent.com/42085040/52391432-1d1fc780-2a6b-11e9-8ff6-ebb3cc7d2977.PNG)
 
-## How to set up Unbuntu with AWS?
+## How to set up Unbuntu with AWS and connect to the instance from our local computer?
 1. sign in to the console
 
 2. Under Build a solution, select Launch a virtual machine
@@ -101,5 +107,119 @@ is default to PuTTY Private Key Files(.ppk). Change to All Files and you will se
 19. Now you are in the DOS where we need to login to our Ubuntu System.
 User Name: ubuntu
 Password: whatever password you set up for the private key - see step 13
+![dos](https://user-images.githubusercontent.com/42085040/52393633-1007d600-2a75-11e9-8054-d5a92910b05e.PNG)
+
+## Now let's get GUI for our Ubuntu OS.
+1. Following the above step, you are login to the system. We need to check for Update; Type or copy the following to the DOC (please include "sudo", it's part of the cm...
+```
+sudo apt update && sudo apt upgrade
+```
+You will be promoted to install more in the additional disk(see below picture). Type Y.
+![y](https://user-images.githubusercontent.com/42085040/52393833-f5822c80-2a75-11e9-8000-20adf8073ce7.PNG)
+
+You will see the following page.. Select "Keep the local version currenly installed" - press enter
+![enter](https://user-images.githubusercontent.com/42085040/52393863-31b58d00-2a76-11e9-9de1-03b17e50f3a5.PNG)
+
+2. Once you are done, let's config sshd_config file to allow password authentication on our ubuntu
+```
+sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+```
+
+3. We need to restart the SSH daemon for the new sshd config to take effect
+```
+sudo /etc/init.d/ssh restart
+```
+![2code](https://user-images.githubusercontent.com/42085040/52394032-e485eb00-2a76-11e9-9d39-ed57ca096490.PNG)
+
+4. Get temporarry root privileges and change the password more security
+```
+sudo passwd ubuntu
+```
+Enter another password.. please dont forget it. you will need it to log in to the system.
+![password](https://user-images.githubusercontent.com/42085040/52394164-6e35b880-2a77-11e9-9c58-4d4dc78e9cb5.PNG)
+
+5. Install the xfce4 desktop environment - xrdp
+```
+sudo apt install xrdp xfce4 xfce4-goodies tightvncserver
+```
+It will ask you if you want to continue. I typed Y too fast and forgot to screenshot.. Just type Y and wait for it to install
+
+6. set xfce4 as the default manager for RDP connections
+```
+echo xfce4-session> /home/ubuntu/.xsession
+```
+
+7. Copy .xsession to the /etc/skel folder and Run the sed command to update the [xrdp1] section
+```
+sudo cp /home/ubuntu/.xsession /etc/skel
+sudo sed -i '0,/-1/s//ask-1/' /etc/xrdp/xrdp.ini
+```
+![67](https://user-images.githubusercontent.com/42085040/52394434-472bb680-2a78-11e9-85d9-7cecec1d493b.PNG)
+
+8. Restart xrdp
+```
+sudo service xrdp restart
+```
+
+9. Now you are almost done! We now need to roboot the system.
+```
+sudo roboot
+```
+
+10. We need to go back and config PuTTY again
+- at landing page (Session), select your saved session - mine is CallMeMaybe Instance
+- click load
+![load](https://user-images.githubusercontent.com/42085040/52394652-f8325100-2a78-11e9-909b-9351e130cfe9.PNG)
+
+11. On the left side Menu, select Connection -> SSH ->Tunnel and we need to do the following:
+-Source port: can be anything as long as they are not in conflict. we use 8888 here
+-Destination: It is the Private IPs from your AWS Ubuntu Instance + ":3389" (Dont forget the semicolon )
+-See picture below for a more clear view
+![3389](https://user-images.githubusercontent.com/42085040/52394828-c1a90600-2a79-11e9-9ca1-1128be2cc149.PNG)
+
+12. Click add and it will appear in Forwarded Ports
+![add](https://user-images.githubusercontent.com/42085040/52394875-f321d180-2a79-11e9-8ec0-7202d53ded7e.PNG)
+
+13. Go back to Session page, click Save so next time you dont have to config again.
+
+14. Click Open and login
+
+15. Type in the following code to see if the port is connected
+```
+netstat -antp
+```
+![3389dos](https://user-images.githubusercontent.com/42085040/52395009-82c78000-2a7a-11e9-8e3c-10631a024527.PNG)
+
+16. If you find 0.0.0.0:3389, then you are connected. Now we can work on the Remote Desktop Connection
+
+17. Launch Remote Desktop Connection and type in the computer field; 
+8888 is the port number you set in the above step(step 11). If you set a different number, you should go back and check what the number
+```
+127.0.0.1:8888
+```
+![8888](https://user-images.githubusercontent.com/42085040/52395184-1305c500-2a7b-11e9-82c8-de1579ce75ed.PNG)
+
+18. Click Connect and Remote Desktop Connection will launch. Now type in username and password
+username: ubuntu
+password: Same Password you set in Step 4
+![msremote](https://user-images.githubusercontent.com/42085040/52395222-45172700-2a7b-11e9-9e84-b130e39b95e5.PNG)
+
+19. You are in the GUI!! Select Default Config
+![gui](https://user-images.githubusercontent.com/42085040/52395313-a63efa80-2a7b-11e9-97e5-fed3035ac49e.PNG)
+
+20. Now lets get you a browser
+- click Application
+- click Terminal Emulator
+- Type in the following code
+```
+sudo apt-get install firefox
+```
+- Type Y to continue
+and now you have a brower to do whatever you want~~~
+![browser](https://user-images.githubusercontent.com/42085040/52395558-aee40080-2a7c-11e9-82d7-b4a74093a7c0.PNG)
+
+
+
+
 
 
