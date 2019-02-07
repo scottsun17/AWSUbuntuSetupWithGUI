@@ -44,7 +44,7 @@ Your Instances are now launching; scroll all the way down, you will see View Ins
 ![viewinstance](https://user-images.githubusercontent.com/42085040/52391957-e8613f80-2a6d-11e9-8114-1409b926668a.PNG)
 
 9. Now you are done with Ubuntu set up. We now need a tool to connect to our VM - PuTTY
-   -Go to: https://www.putty.org/ 
+   - Go to: https://www.putty.org/ 
    - Click Download PuTTY
 ![putty](https://user-images.githubusercontent.com/42085040/52392212-d2a04a00-2a6e-11e9-8b85-faccbc41f528.PNG)
    - Download whichever bit apply to you. Mine is 64-bit.
@@ -53,10 +53,11 @@ Your Instances are now launching; scroll all the way down, you will see View Ins
 10. Following the Installation instruction. There is nothing to set up...
 
 11. Once your PuTTY is installed, go to start menu:
-   -All Programs
-   -PuTTY Folder
-   -PuTTYgen
+   - All Programs
+   - PuTTY Folder
+   - PuTTYgen
 and you will get the following program:
+
 ![puttygen](https://user-images.githubusercontent.com/42085040/52392474-eef0b680-2a6f-11e9-9e50-1f1c0fc0b943.PNG)
 
 12. The program is used to load the Key Pair(CallMeMaybe.pem as I generated in step 6) and generate private key
