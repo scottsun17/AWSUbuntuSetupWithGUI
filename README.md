@@ -61,26 +61,27 @@ and you will get the following program:
 ![puttygen](https://user-images.githubusercontent.com/42085040/52392474-eef0b680-2a6f-11e9-9e50-1f1c0fc0b943.PNG)
 
 12. The program is used to load the Key Pair(CallMeMaybe.pem as I generated in step 6) and generate private key
-   -Click Load
-   -Navigate to the folder where you saved your Key Pair. You will not be able to see the Key Pair because the file selection is default to PuTTY Private Key Files(.ppk). Change to All Files and you will see your AWS Key Pair
+   - Click Load
+   - Navigate to the folder where you saved your Key Pair. You will not be able to see the Key Pair because the file selection is default to PuTTY Private Key Files(.ppk). Change to All Files and you will see your AWS Key Pair
+   
 ![keyload](https://user-images.githubusercontent.com/42085040/52392571-80602880-2a70-11e9-8150-2b0d3e512a68.PNG)
 ![openkeyload](https://user-images.githubusercontent.com/42085040/52392609-a4236e80-2a70-11e9-81b7-dcec185b07dc.PNG)
 ![succe](https://user-images.githubusercontent.com/42085040/52392635-c2896a00-2a70-11e9-88f7-2d63220b09df.PNG)
 
 13. If you see the above picture, Key Pair is loaded. 
-   -Now you need to set password(passphrase) for your private key
-   -Select RSA as the type of Key to generate
-   -Number of bits in a generated key: 2048
-   -save Private Key (CallMeMaybe.ppk)
-   -exit PuTTYgen
+   - Now you need to set password(passphrase) for your private key
+   - Select RSA as the type of Key to generate
+   - Number of bits in a generated key: 2048
+   - save Private Key (CallMeMaybe.ppk)
+   - exit PuTTYgen
 ![savepk](https://user-images.githubusercontent.com/42085040/52392771-552a0900-2a71-11e9-8abb-73ab84316b74.PNG)
 
 14. Now let's connect to your AWS Ubuntu through PuTTY
-   -Start menu:
-   -All Programs
-   -PuTTY Folder
-   -PuTTY
-   -Now you see the PuTTY Configuration
+   - Start menu:
+   - All Programs
+   - PuTTY Folder
+   - PuTTY
+   - Now you see the PuTTY Configuration
 ![puttymenu](https://user-images.githubusercontent.com/42085040/52392869-b94ccd00-2a71-11e9-83f3-1311bc49593e.PNG)
 
 15. At the PuTTY landing Page (Session tab on the left menu), we need to fill out the following information (Go to Step 8 to find the information)
@@ -172,9 +173,9 @@ sudo roboot
 ![load](https://user-images.githubusercontent.com/42085040/52394652-f8325100-2a78-11e9-909b-9351e130cfe9.PNG)
 
 11. On the left side Menu, select Connection -> SSH ->Tunnel and we need to do the following:
-   -Source port: can be anything as long as they are not in conflict. we use 8888 here
-   -Destination: It is the Private IPs from your AWS Ubuntu Instance + ":3389" (Dont forget the semicolon )
-   -See picture below for a more clear view
+   - Source port: can be anything as long as they are not in conflict. we use 8888 here
+   - Destination: It is the Private IPs from your AWS Ubuntu Instance + ":3389" (Dont forget the semicolon )
+   - See picture below for a more clear view
 ![3389](https://user-images.githubusercontent.com/42085040/52394828-c1a90600-2a79-11e9-9ca1-1128be2cc149.PNG)
 
 12. Click add and it will appear in Forwarded Ports
