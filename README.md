@@ -1,4 +1,4 @@
-# AWSUbuntuSetupWithGUI
+# AWS Ubuntu Setup With GUI on Windows Computer
 Step by step setting up Ubuntu on AWS and connecting to GUI with MS Remote Desktop Connection on a windows computer
 
 ## what you need to start
